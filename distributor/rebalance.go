@@ -9,7 +9,7 @@ import (
 	"github.com/coreos/torus/models"
 )
 
-// Goroutine which watches for new rings and kicks off
+// ringWatcher; Goroutine which watches for new rings and kicks off
 // the rebalance dance.
 func (d *Distributor) ringWatcher(closer chan struct{}) {
 	ch := make(chan torus.Ring)

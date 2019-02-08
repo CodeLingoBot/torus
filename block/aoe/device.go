@@ -24,7 +24,7 @@ type Device interface {
 // note: ATA 'words' are 16 bits, so all byte offsets are multiplied
 // by 2.
 
-// encode a 28 bit LBA
+// lba28; encode a 28 bit LBA
 func lba28(s int64) [4]byte {
 	l := [4]byte{}
 
@@ -39,7 +39,7 @@ func lba28(s int64) [4]byte {
 	return l
 }
 
-// encode a 48 bit LBA
+// lba48; encode a 48 bit LBA
 func lba48(s int64) [6]byte {
 	l := [6]byte{}
 
@@ -58,13 +58,13 @@ func lba48(s int64) [6]byte {
 	return l
 }
 
-// poke a short into p at off
+// pshort; poke a short into p at off
 func pshort(p []byte, off int, v uint16) {
 	off = off * 2
 	binary.LittleEndian.PutUint16(p[off:off+2], v)
 }
 
-// poke a string into p at off and pad with space
+// pstring; poke a string into p at off and pad with space
 func pstring(p []byte, off int, sz int, ident string) {
 	if sz%2 != 0 {
 		panic("can't encode odd length string")

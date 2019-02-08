@@ -179,7 +179,7 @@ func (c *NBDConn) handler() error {
 	return nil
 }
 
-// do nbd option exchange and return once export name is given.
+// options; do nbd option exchange and return once export name is given.
 func (c *NBDConn) options() error {
 	for {
 		opt, err := c.getOpt()

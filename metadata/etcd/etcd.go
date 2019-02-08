@@ -239,7 +239,7 @@ func (c *etcdCtx) GetPeers() (torus.PeerInfoList, error) {
 // between getting the data and setting the new value.
 type AtomicModifyFunc func(in []byte) (out []byte, data interface{}, err error)
 
-// TODO(barakmich): Perhaps make this an etcd client library function.
+// AtomicModifyKey; TODO(barakmich): Perhaps make this an etcd client library function.
 func (c *etcdCtx) AtomicModifyKey(k []byte, f AtomicModifyFunc) (interface{}, error) {
 	key := string(k)
 	resp, err := c.etcd.Client.Get(c.getContext(), key)

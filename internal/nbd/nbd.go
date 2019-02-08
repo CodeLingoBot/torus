@@ -60,7 +60,7 @@ const (
 	errIO = 5
 )
 
-// ioctl() helper function
+// ioctl; helper function
 func ioctl(a1, a2, a3 uintptr) (err error) {
 	_, _, errno := syscall.Syscall(syscall.SYS_IOCTL, a1, a2, a3)
 	if errno != 0 {
@@ -102,7 +102,7 @@ func Create(device Device, size int64, blocksize int64) *NBD {
 	return nil
 }
 
-// return true if connected
+// IsConnected; return true if connected
 func (nbd *NBD) IsConnected() bool {
 	return nbd.nbd != nil && nbd.socket > 0
 }

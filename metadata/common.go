@@ -15,7 +15,7 @@ func MakeUUID() string {
 	return uuid.NewUUID().String()
 }
 
-// TODO(barakmich): Make into a JSON file?
+// GetUUID; TODO(barakmich): Make into a JSON file?
 // This all should be moved to storage/ because that's where it's really owned.
 func GetUUID(datadir string) (string, error) {
 	if datadir == "" {
